@@ -111,7 +111,7 @@ custom_boxplot = function(dataframe,
       for(group in unique(x_dataframe[[grouping]])){
         group_dataframe = x_dataframe[x_dataframe[[grouping]] == group,] #split by condition
         if(var(group_dataframe[[y]]) == 0 | 
-           nrow(group_dataframe) < 3)){next} #cannot perform shapiro test with zero varience
+           nrow(group_dataframe) < 3){next} #cannot perform shapiro test with zero varience
         normality = shapiro.test(group_dataframe[[y]])$p.value
         is_normal = normality > 0.05
         normally_distributed = normally_distributed && is_normal
